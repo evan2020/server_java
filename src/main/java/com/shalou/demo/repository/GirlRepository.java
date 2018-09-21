@@ -1,5 +1,6 @@
-package com.shalou.demo;
+package com.shalou.demo.repository;
 
+import com.shalou.demo.domain.Girl;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.util.List;

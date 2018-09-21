@@ -25,6 +25,7 @@
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />
     <orderEntry type="sourceFolder" forTests="false" />
+    <orderEntry type="library" name="servlet-api" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-web:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot:2.0.5.RELEASE" level="project" />
@@ -55,7 +56,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-web:5.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-beans:5.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-webmvc:5.0.9.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-context:5.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-expression:5.0.9.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework.boot:spring-boot-starter-test:2.0.5.RELEASE" level="project" />
@@ -81,8 +81,6 @@
     <orderEntry type="library" scope="TEST" name="Maven: org.springframework:spring-test:5.0.9.RELEASE" level="project" />
     <orderEntry type="library" scope="TEST" name="Maven: org.xmlunit:xmlunit-core:2.5.1" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-data-jpa:2.0.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.0.5.RELEASE" level="project" />
-    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.13" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-jdbc:2.0.5.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: com.zaxxer:HikariCP:2.7.9" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-jdbc:5.0.9.RELEASE" level="project" />
@@ -101,5 +99,8 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-aspects:5.0.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: mysql:mysql-connector-java:8.0.11" level="project" />
     <orderEntry type="library" scope="RUNTIME" name="Maven: com.google.protobuf:protobuf-java:2.6.0" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework.boot:spring-boot-starter-aop:2.0.5.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.springframework:spring-aop:5.0.9.RELEASE" level="project" />
+    <orderEntry type="library" name="Maven: org.aspectj:aspectjweaver:1.8.13" level="project" />
   </component>
 </module>

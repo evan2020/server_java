@@ -1,14 +1,17 @@
-package com.shalou.demo;
+package com.shalou.demo.domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.validation.constraints.Min;
+
 @Entity
 public class Girl {
     @Id
     @GeneratedValue
     private Integer id;
     private String cupSize;
+    @Min(value = 18,message = "未成年少女禁止入内")
     private Integer age;
 
     public Integer getId() {
@@ -37,5 +40,14 @@ public class Girl {
 
     public Girl(){
 
+    }
+
+    @Override
+    public String toString() {
+        return "Girl{" +
+                "id=" + id +
+                ", cupSize='" + cupSize + '\'' +
+                ", age=" + age +
+                '}';
     }
 }

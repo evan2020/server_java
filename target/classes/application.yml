@@ -8,5 +8,5 @@ spring:
     password: Leaf448772566
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true

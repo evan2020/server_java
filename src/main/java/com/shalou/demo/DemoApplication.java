@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.CorsRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
-
+//主要入口和方法
 @SpringBootApplication
 public class DemoApplication {
 
@@ -21,6 +21,7 @@ public class DemoApplication {
         }
     }
 
+    //主方法
     public static void main(String[] args) {
         SpringApplication.run(DemoApplication.class, args);
     }

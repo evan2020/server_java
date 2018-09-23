@@ -6,9 +6,13 @@ import com.shalou.demo.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.persistence.criteria.*;
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -17,7 +21,7 @@ import java.util.List;
 public class UserService {
 
     //引入日志
-    private final static Logger logger= LoggerFactory.getLogger(UserService.class);
+    private final static Logger logger = LoggerFactory.getLogger(UserService.class);
 
     //自动装配
     @Autowired
@@ -37,21 +41,21 @@ public class UserService {
         //判断某个值是否为空(比如用户名),设置是否非必填字段
 
         //通过用户名来查询
-        List userNameOne=userRepository.findUserByUserName(user.getUserName());
+        List userNameOne = userRepository.findUserByUserName(user.getUserName());
         //如果用户名查询的结果不为空
-        if(!userNameOne.isEmpty()&&userNameOne!=null){
+        if (!userNameOne.isEmpty() && userNameOne != null) {
             return ResultUtil.error(-1, "用户名已存在");
         }
         //通过手机号来查询
-        List userPhoneNumOne=userRepository.findUserByPhoneNum(user.getPhoneNum());
+        List userPhoneNumOne = userRepository.findUserByPhoneNum(user.getPhoneNum());
         //如果手机号查询的结果不为空
-        if(!userPhoneNumOne.isEmpty()&&userPhoneNumOne!=null){
+        if (!userPhoneNumOne.isEmpty() && userPhoneNumOne != null) {
             return ResultUtil.error(-1, "该手机号已注册");
         }
         //通过邮箱来查询
-        List userEmailOne=userRepository.findUserByUserEmail(user.getUserEmail());
+        List userEmailOne = userRepository.findUserByUserEmail(user.getUserEmail());
         //如果邮箱查询的结果不为空
-        if(!userEmailOne.isEmpty()&&userEmailOne!=null){
+        if (!userEmailOne.isEmpty() && userEmailOne != null) {
             return ResultUtil.error(-1, "该邮箱已注册");
         }
 
@@ -65,8 +69,74 @@ public class UserService {
         userRepository.save(user);
 
         //返回 res
-        return ResultUtil.success(user);
+        return ResultUtil.success();
 
     }
 
+    @ResponseBody
+    //设置API res (查询用户)(多条件单表分页查询)
+    public Specification<User> queryUser(User user, Integer pageIndex, Integer pageSize) throws Exception {
+        //设置条件查询
+        Specification<User> specification = new Specification<User>() {
+            @Override
+            public Predicate toPredicate(Root<User> root, CriteriaQuery<?> query, CriteriaBuilder criteriaBuilder) {
+
+                //设置res数组
+                List<Predicate> predicates = new ArrayList<>();
+
+                //设置查询参数
+                Path userName = root.get("userName");//设置用户名
+                Path phoneNum = root.get("phoneNum");//设置手机号码
+                Path userEmail = root.get("userEmail");//设置邮箱
+                Path city = root.get("city");//设置城市
+                Path sex = root.get("sex");//设置性别
+                Path status = root.get("status");//设置状态
+
+                //设置查询条件和获取对应结果
+
+                //如果用户名不为空
+                if (user.getUserName() != null) {
+                    Predicate name = criteriaBuilder.equal(userName, user.getUserName());
+                    predicates.add(name);
+                }
+
+                //如果手机号码不为空
+                if (user.getPhoneNum() != 0) {
+                    Predicate phone = criteriaBuilder.equal(phoneNum, user.getPhoneNum());
+                    predicates.add(phone);
+                }
+
+                //如果邮箱不为空
+                if (user.getUserEmail() != null) {
+                    Predicate email = criteriaBuilder.equal(userEmail, user.getUserEmail());
+                    predicates.add(email);
+                }
+
+                //如果城市不为空
+                if (user.getCity() != null) {
+                    Predicate citys = criteriaBuilder.equal(city, user.getCity());
+                    predicates.add(citys);
+                }
+
+                //如果性别不为空
+                if (user.getSex() != null) {
+                    Predicate userSex = criteriaBuilder.equal(sex, user.getSex());
+                    predicates.add(userSex);
+                }
+
+                //如果状态不为空
+                if (user.getStatus() != null) {
+                    Predicate userStatus = criteriaBuilder.equal(status, user.getStatus());
+                    predicates.add(userStatus);
+                }
+
+                //将所有条件获取的数据格式化并返回给Controller进行分页
+                return criteriaBuilder.and(predicates.toArray(new Predicate[predicates.size()]));
+
+            }
+        };
+
+        //返回给controller
+        return specification;
+    }
 }

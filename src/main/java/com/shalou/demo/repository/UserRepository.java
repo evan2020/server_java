@@ -13,4 +13,8 @@ public interface UserRepository extends JpaRepository<User,Integer> {
 
     //通过手机号查询用户
     public  List<User> findUserByPhoneNum(Long phoneName);
+
+    //通过邮箱来查询用户
+    public List<User> findUserByUserEmail(String userEmail);
+
 }

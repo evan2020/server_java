@@ -25,13 +25,21 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    //测试接口
     @GetMapping(value = "/user/test")
     public String test(){
         return "test";
     }
 
+    //添加用户
     @PostMapping(value = "/user/addUser")
     public Object addUser(User user)throws Exception{
         return userService.addUser(user);
+    }
+
+    //查询所有用户
+    @GetMapping(value = "/user/queryUser")
+    public void queryUser(){
+        
     }
 }

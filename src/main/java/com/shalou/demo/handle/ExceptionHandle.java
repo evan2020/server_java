@@ -1,6 +1,7 @@
 package com.shalou.demo.handle;
 
 import com.shalou.demo.domain.Result;
+import com.shalou.demo.exception.ComException;
 import com.shalou.demo.exception.GirlException;
 import com.shalou.demo.utils.ResultUtil;
 import org.slf4j.Logger;
@@ -23,10 +24,10 @@ public class ExceptionHandle {
     //定义统一的异常处理方法
     public Result handle(Exception e){
         //判断
-        if(e instanceof GirlException){
+        if(e instanceof ComException){
             //如果是自定义的异常捕获,则返回自动的ResultApi信息
-            GirlException girlException=(GirlException)e;
-            return ResultUtil.error(girlException.getCode(),girlException.getMessage());
+            ComException comException=(ComException)e;
+            return ResultUtil.error(comException.getCode(),comException.getMessage());
         }else{
             //如果是系统错误,则在控制台打印日志,并返回统一的错误信息
             logger.error("[系统异常]{}",e);

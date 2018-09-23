@@ -3,12 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1364f59e-b442-463c-8346-85052458c9d6" name="默认更改列表" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shalou/demo/DemoApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shalou/demo/DemoApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shalou/demo/aspect/httpAspect.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shalou/demo/aspect/httpAspect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/GirlController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/GirlController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/HelloController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/Girl.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/Girl.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/GirlRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/GirlRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/shalou/demo/handle/ExceptionHandle.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/shalou/demo/handle/ExceptionHandle.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -18,23 +13,105 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DockManager">
+    <window id="2">
+      <content type="file-editors">
+        <state>
+          <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/Girl.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="216">
+                    <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="true">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/GirlController.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="1458">
+                    <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/GirlRepository.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="216">
+                    <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/service/GirlService.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="216">
+                    <caret line="20" lean-forward="true" selection-start-line="20" selection-end-line="20" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/User.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="862">
+                    <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
+                    <folding>
+                      <element signature="imports" expanded="true" />
+                      <element signature="e#803#804#0" expanded="true" />
+                      <element signature="e#834#835#0" expanded="true" />
+                    </folding>
+                  </state>
+                </provider>
+              </entry>
+            </file>
+            <file pinned="false" current-in-tab="false">
+              <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/exception/GirlException.java">
+                <provider selected="true" editor-type-id="text-editor">
+                  <state relative-caret-position="81">
+                    <caret line="3" lean-forward="true" selection-start-line="3" selection-end-line="3" />
+                  </state>
+                </provider>
+              </entry>
+            </file>
+          </leaf>
+        </state>
+      </content>
+    </window>
+  </component>
   <component name="FUSProjectUsageTrigger">
     <session id="-1334720691">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="6" />
+          <entry key="project.closed" value="8" />
           <entry key="project.open.time.10" value="1" />
-          <entry key="project.open.time.12" value="3" />
+          <entry key="project.open.time.12" value="4" />
+          <entry key="project.open.time.13" value="1" />
           <entry key="project.open.time.14" value="1" />
           <entry key="project.open.time.15" value="1" />
           <entry key="project.open.time.20" value="1" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.opened" value="8" />
+          <entry key="project.opened" value="10" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="java" value="20" />
+          <entry key="java" value="36" />
           <entry key="properties" value="1" />
           <entry key="xml" value="2" />
           <entry key="yml" value="5" />
@@ -42,7 +119,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="JAVA" value="20" />
+          <entry key="JAVA" value="36" />
           <entry key="Properties" value="1" />
           <entry key="XML" value="2" />
           <entry key="YAML" value="5" />
@@ -50,7 +127,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="5487" />
+          <entry key="java" value="7156" />
           <entry key="properties" value="33" />
           <entry key="xml" value="50" />
           <entry key="yml" value="469" />
@@ -58,7 +135,7 @@
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="5487" />
+          <entry key="JAVA" value="7156" />
           <entry key="Properties" value="33" />
           <entry key="XML" value="50" />
           <entry key="YAML" value="469" />
@@ -68,46 +145,20 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/DemoApplication.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/Result.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="270">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-              <folding>
-                <element signature="e#183#184#0" expanded="true" />
-                <element signature="e#210#211#0" expanded="true" />
-                <element signature="e#251#252#0" expanded="true" />
-                <element signature="e#283#284#0" expanded="true" />
-                <element signature="e#313#314#0" expanded="true" />
-                <element signature="e#339#340#0" expanded="true" />
-                <element signature="e#377#378#0" expanded="true" />
-                <element signature="e#407#408#0" expanded="true" />
-                <element signature="e#177#178#0" expanded="true" />
-                <element signature="e#204#205#0" expanded="true" />
-                <element signature="e#239#240#0" expanded="true" />
-                <element signature="e#271#272#0" expanded="true" />
-              </folding>
+              <caret line="10" selection-start-line="10" selection-end-line="10" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/GirlRepository.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/UserRepository.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="297">
-              <caret line="11" column="35" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="35" />
+            <state>
+              <caret column="28" selection-start-column="28" selection-end-column="28" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -116,36 +167,10 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/GirlController.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/UserController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="207">
-              <caret line="93" column="43" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="43" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#1601#1602#0" expanded="true" />
-                <element signature="e#1630#1631#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/Girl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="55" column="18" lean-forward="true" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/handle/ExceptionHandle.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="303">
-              <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+            <state relative-caret-position="246">
+              <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -156,14 +181,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/enums/ResultEnum.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="351">
-              <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
-              <folding>
-                <element signature="e#243#244#0" expanded="true" />
-                <element signature="e#270#271#0" expanded="true" />
-                <element signature="e#300#301#0" expanded="true" />
-                <element signature="e#326#327#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="54">
+              <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
             </state>
           </provider>
         </entry>
@@ -171,13 +190,28 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/exception/GirlException.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="108">
-              <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
+            <state relative-caret-position="378">
+              <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/exception/ComException.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="324">
+              <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/handle/ExceptionHandle.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="783">
+              <caret line="29" column="71" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
               <folding>
-                <element signature="e#145#146#0" expanded="true" />
-                <element signature="e#172#173#0" expanded="true" />
-                <element signature="e#213#214#0" expanded="true" />
-                <element signature="e#245#246#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -186,8 +220,20 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/service/GirlService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="169">
-              <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+            <state relative-caret-position="496">
+              <caret line="31" column="59" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="59" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/service/UserService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="405">
+              <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -198,12 +244,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/utils/ResultUtil.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="249">
+            <state relative-caret-position="270">
               <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-              <folding>
-                <element signature="e#338#339#0" expanded="true" />
-                <element signature="e#369#370#0" expanded="true" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -213,10 +255,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Singleton" />
-        <option value="Class" />
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -253,11 +295,16 @@
         <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/Girl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/enums/ResultEnum.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/exception/GirlException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/handle/ExceptionHandle.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/GirlRepository.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/service/GirlService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/utils/ResultUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/DemoApplication.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/User.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/exception/ComException.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/handle/ExceptionHandle.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/UserRepository.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/shalou/demo/service/UserService.java" />
       </list>
     </option>
   </component>
@@ -281,8 +328,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
       <pane id="Scope" />
+      <pane id="AndroidView" />
+      <pane id="PackagesPane" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -414,7 +462,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -424,12 +471,13 @@
     <property name="RequestMappingsPanelWidth1" value="75" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537590634223" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1537681334903" />
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="project.structure.last.edited" value="Libraries" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="RecentsManager">
@@ -475,18 +523,20 @@
       <workItem from="1537206649328" duration="3850000" />
       <workItem from="1537210654653" duration="271000" />
       <workItem from="1537281800990" duration="266000" />
-      <workItem from="1537550393122" duration="21814000" />
+      <workItem from="1537550393122" duration="23757000" />
+      <workItem from="1537639114615" duration="2521000" />
+      <workItem from="1537641663745" duration="3765000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="29952000" />
+    <option name="totallyTimeSpent" value="38181000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17324094" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1748401" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Image Layers" order="2" />
       <window_info id="UI Designer" order="3" />
@@ -496,7 +546,7 @@
       <window_info id="Web" order="7" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.23561347" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29750273" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -520,6 +570,41 @@
       <window_info anchor="right" id="Theme Preview" order="8" />
       <window_info anchor="right" id="Bean Validation" order="9" />
     </layout>
+    <layout-to-restore>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1748401" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info id="Image Layers" order="2" />
+      <window_info id="UI Designer" order="3" />
+      <window_info id="Favorites" order="4" side_tool="true" />
+      <window_info id="Capture Tool" order="5" />
+      <window_info id="设计器" order="6" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" visible="true" weight="0.29750273" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Messages" order="7" weight="0.32899022" />
+      <window_info anchor="bottom" id="Spring" order="8" />
+      <window_info anchor="bottom" id="Terminal" order="9" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
+      <window_info anchor="bottom" id="Java Enterprise" order="11" />
+      <window_info anchor="bottom" id="Database Changes" order="12" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Version Control" order="13" show_stripe_button="false" />
+      <window_info anchor="bottom" id="调试" order="14" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="right" id="Capture Analysis" order="3" />
+      <window_info anchor="right" id="调色板" order="4" />
+      <window_info anchor="right" id="Maven Projects" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="Bean Validation" order="9" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -558,28 +643,19 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/exception.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/exception.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/HelloController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/DemoApplication.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="54">
-          <caret line="2" column="22" selection-start-line="2" selection-start-column="22" selection-end-line="2" selection-end-column="22" />
+        <state relative-caret-position="108">
+          <caret line="8" column="9" selection-start-line="8" selection-start-column="9" selection-end-line="8" selection-end-column="9" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/aspect/httpAspect.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-405">
-          <caret line="9" column="25" lean-forward="true" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding>
-            <element signature="e#1670#1671#0" expanded="true" />
-            <element signature="e#1709#1710#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/HelloController.java">
-      <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="189">
-          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+          <caret line="14" column="13" selection-start-line="14" selection-start-column="13" selection-end-line="14" selection-end-column="13" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -588,65 +664,85 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/Girl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="55" column="18" lean-forward="true" selection-start-line="55" selection-start-column="18" selection-end-line="55" selection-end-column="18" />
+        <state relative-caret-position="216">
+          <caret line="11" column="10" selection-start-line="11" selection-start-column="10" selection-end-line="11" selection-end-column="10" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/Result.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="246">
+          <caret line="30" column="5" lean-forward="true" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
           <folding>
-            <element signature="e#183#184#0" expanded="true" />
-            <element signature="e#210#211#0" expanded="true" />
-            <element signature="e#251#252#0" expanded="true" />
-            <element signature="e#283#284#0" expanded="true" />
-            <element signature="e#313#314#0" expanded="true" />
-            <element signature="e#339#340#0" expanded="true" />
-            <element signature="e#377#378#0" expanded="true" />
-            <element signature="e#407#408#0" expanded="true" />
-            <element signature="e#177#178#0" expanded="true" />
-            <element signature="e#204#205#0" expanded="true" />
-            <element signature="e#239#240#0" expanded="true" />
-            <element signature="e#271#272#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/exception/ComException.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="324">
+          <caret line="14" column="5" lean-forward="true" selection-start-line="14" selection-start-column="5" selection-end-line="14" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/handle/ExceptionHandle.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="783">
+          <caret line="29" column="71" selection-start-line="29" selection-start-column="71" selection-end-line="29" selection-end-column="71" />
+          <folding>
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/enums/ResultEnum.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="351">
-          <caret line="22" column="6" selection-start-line="22" selection-start-column="6" selection-end-line="22" selection-end-column="6" />
+        <state relative-caret-position="54">
+          <caret line="11" column="11" lean-forward="true" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/Result.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/utils/ResultUtil.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="270">
+          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/domain/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="862">
+          <caret line="102" column="32" selection-start-line="102" selection-start-column="32" selection-end-line="102" selection-end-column="32" />
           <folding>
-            <element signature="e#243#244#0" expanded="true" />
-            <element signature="e#270#271#0" expanded="true" />
-            <element signature="e#300#301#0" expanded="true" />
-            <element signature="e#326#327#0" expanded="true" />
+            <element signature="imports" expanded="true" />
+            <element signature="e#803#804#0" expanded="true" />
+            <element signature="e#834#835#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/exception/GirlException.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="108">
-          <caret line="4" column="18" selection-start-line="4" selection-start-column="18" selection-end-line="4" selection-end-column="18" />
-          <folding>
-            <element signature="e#145#146#0" expanded="true" />
-            <element signature="e#172#173#0" expanded="true" />
-            <element signature="e#213#214#0" expanded="true" />
-            <element signature="e#245#246#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="378">
+          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/handle/ExceptionHandle.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/GirlRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="303">
-          <caret line="29" column="14" lean-forward="true" selection-start-line="29" selection-start-column="14" selection-end-line="29" selection-end-column="14" />
+        <state relative-caret-position="216">
+          <caret line="8" column="17" selection-start-line="8" selection-start-column="17" selection-end-line="8" selection-end-column="17" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -655,20 +751,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/controller/GirlController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="207">
-          <caret line="93" column="43" selection-start-line="93" selection-start-column="30" selection-end-line="93" selection-end-column="43" />
+        <state relative-caret-position="1458">
+          <caret line="54" column="20" lean-forward="true" selection-start-line="54" selection-start-column="20" selection-end-line="54" selection-end-column="20" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#1601#1602#0" expanded="true" />
-            <element signature="e#1630#1631#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/GirlRepository.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/repository/UserRepository.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="297">
-          <caret line="11" column="35" selection-start-line="11" selection-start-column="22" selection-end-line="11" selection-end-column="35" />
+        <state>
+          <caret column="28" selection-start-column="28" selection-end-column="28" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
@@ -677,29 +771,18 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/service/GirlService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="169">
-          <caret line="30" column="27" lean-forward="true" selection-start-line="30" selection-start-column="27" selection-end-line="30" selection-end-column="27" />
+        <state relative-caret-position="496">
+          <caret line="31" column="59" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="59" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/utils/ResultUtil.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/service/UserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="249">
-          <caret line="21" column="6" selection-start-line="21" selection-start-column="6" selection-end-line="21" selection-end-column="6" />
-          <folding>
-            <element signature="e#338#339#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/shalou/demo/DemoApplication.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="23" column="6" selection-start-line="23" selection-start-column="6" selection-end-line="23" selection-end-column="6" />
+        <state relative-caret-position="405">
+          <caret line="54" column="48" selection-start-line="54" selection-start-column="48" selection-end-line="54" selection-end-column="48" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

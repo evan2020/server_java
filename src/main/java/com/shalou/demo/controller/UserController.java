@@ -53,8 +53,8 @@ public class UserController {
                             @RequestParam("pageIndex") Integer pageIndex,
                             @RequestParam("pageSize") Integer pageSize
     ) throws Exception {
-        //设置分页
-        PageRequest pageRequest = PageRequest.of(pageIndex, pageSize);
+        //设置分页(默认从0开始,所以记得减一)
+        PageRequest pageRequest = PageRequest.of(pageIndex - 1, pageSize);
 
         //获取service的条件查询结果然后分页
         Page<User> page = userRepository.findAll(userService.queryUser(user, pageIndex, pageSize), pageRequest);
@@ -64,5 +64,15 @@ public class UserController {
 
         //返回res
         return ResultUtil.success(page);
+    }
+
+
+    //编辑用户
+    @PostMapping(value = "/user/edit")
+    public Object editUser(User user,
+                           @RequestParam("id") Integer id) throws Exception {
+
+        //返回res信息
+        return userService.editUser(user, id);
     }
 }

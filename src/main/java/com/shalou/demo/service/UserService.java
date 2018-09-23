@@ -73,8 +73,8 @@ public class UserService {
 
     }
 
-    @ResponseBody
     //设置API res (查询用户)(多条件单表分页查询)
+    @ResponseBody
     public Specification<User> queryUser(User user, Integer pageIndex, Integer pageSize) throws Exception {
         //设置条件查询
         Specification<User> specification = new Specification<User>() {
@@ -139,4 +139,68 @@ public class UserService {
         //返回给controller
         return specification;
     }
+
+    //编辑用户
+    @ResponseBody
+    public Object editUser(User user, Integer id) throws Exception {
+
+        // 通过Id获取当前被编辑的用户信息
+        User userIdOne = userRepository.findUserById(id);
+        logger.info(userIdOne.toString());
+
+        //通过用户名来查询
+        List userNameOne = userRepository.findUserByUserName(user.getUserName());
+        //如果用户名查询的结果不为空
+        if (!userNameOne.isEmpty() && userNameOne != null) {
+            //如果当前传入的用户名和修改前的用户名一致则不做处理
+            if (userIdOne.getUserName().equals(user.getUserName())) {
+                logger.info("用户名未修改");
+            }
+            //如果用户名在数据库已有且与修改前不一致则提示已存在同样的名称
+            else {
+                return ResultUtil.error(-1, "用户名已存在");
+            }
+        }
+        //通过手机号来查询
+        List userPhoneNumOne = userRepository.findUserByPhoneNum(user.getPhoneNum());
+        //如果手机号查询的结果不为空
+        if (!userPhoneNumOne.isEmpty() && userPhoneNumOne != null) {
+            //如果当前传入的手机号和修改前的手机号一致则不做处理
+            if (userIdOne.getPhoneNum() == user.getPhoneNum()) {
+                logger.info("手机号未修改");
+            }
+            //如果用户名在数据库已有且与修改前不一致则提示已存在同样的名称
+            else {
+                return ResultUtil.error(-1, "该手机号已注册");
+            }
+        }
+        //通过邮箱来查询
+        List userEmailOne = userRepository.findUserByUserEmail(user.getUserEmail());
+        //如果邮箱查询的结果不为空
+        if (!userEmailOne.isEmpty() && userEmailOne != null) {
+            //如果当前传入的手机号和修改前的手机号一致则不做处理
+            if (userIdOne.getUserEmail().equals(user.getUserEmail())) {
+                logger.info("邮箱未修改");
+            }
+            //如果用户名在数据库已有且与修改前不一致则提示已存在同样的名称
+            else {
+                return ResultUtil.error(-1, "该邮箱已注册");
+            }
+        }
+
+        //创建一个新的用户(用户编辑保存)
+        User users = new User();
+        users.setId(user.getId());
+        users.setUserName(user.getUserName());
+        users.setUserEmail(user.getUserEmail());
+        users.setPhoneNum(user.getPhoneNum());
+        users.setCity(user.getCity());
+        users.setSex(user.getSex());
+        users.setStatus(user.getStatus());
+        userRepository.save(users);
+
+        //返回res信息
+        return ResultUtil.success();
+    }
+
 }

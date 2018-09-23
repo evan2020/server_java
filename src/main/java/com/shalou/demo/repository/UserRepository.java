@@ -9,6 +9,9 @@ import java.util.List;
 //用户表数据接口
 public interface UserRepository extends JpaRepository<User, Integer>, JpaSpecificationExecutor<User> {
 
+    //通过id查询用户
+    public User findUserById(Integer id);
+
     //通过用户名来查询用户
     public List<User> findUserByUserName(String name);
 

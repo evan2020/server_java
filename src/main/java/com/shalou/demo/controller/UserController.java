@@ -75,4 +75,11 @@ public class UserController {
         //返回res信息
         return userService.editUser(user, id);
     }
+
+    //删除用户
+    @PostMapping(value = "/user/delete")
+    public Object deleteUser(@RequestParam("id") Integer id)throws Exception{
+        return userService.deleteUser(id);
+    }
+
 }

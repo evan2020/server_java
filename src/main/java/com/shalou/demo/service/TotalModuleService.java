@@ -38,6 +38,13 @@ public class TotalModuleService {
         totalModule1Add.setRemarks(totalModule.getRemarks());
         totalModule1Add.setTitle(totalModule.getTitle());
         totalModule1Add.setSort(totalModule.getSort());
+
+        totalModule1Add.setLevel(totalModule.getLevel());
+        totalModule1Add.setType(totalModule.getType());
+        totalModule1Add.setClickNum(totalModule.getClickNum());
+        totalModule1Add.setForwardNum(totalModule.getForwardNum());
+        totalModule1Add.setCollectionNum(totalModule.getCollectionNum());
+
         totalModuleRespository.save(totalModule1Add);
         return ResultUtil.success();
     }
@@ -54,6 +61,13 @@ public class TotalModuleService {
         totalModule1Edit.setRemarks(totalModule.getRemarks());
         totalModule1Edit.setTitle(totalModule.getTitle());
         totalModule1Edit.setSort(totalModule.getSort());
+
+        totalModule1Edit.setLevel(totalModule.getLevel());
+        totalModule1Edit.setType(totalModule.getType());
+        totalModule1Edit.setClickNum(totalModule.getClickNum());
+        totalModule1Edit.setForwardNum(totalModule.getForwardNum());
+        totalModule1Edit.setCollectionNum(totalModule.getCollectionNum());
+
         totalModuleRespository.save(totalModule1Edit);
         return ResultUtil.success();
     }
@@ -87,6 +101,21 @@ public class TotalModuleService {
                 Path description = root.get("description");
                 Path remarks = root.get("remarks");
                 Path sort = root.get("sort");
+
+                Path level = root.get("level");
+                Path type = root.get("type");
+
+                //如果level不为空
+                if (totalModule.getLevel() != null) {
+                    Predicate levelRes = criteriaBuilder.equal(level, totalModule.getLevel());
+                    predicates.add(levelRes);
+                }
+
+                //如果type不为空
+                if (totalModule.getType() != null) {
+                    Predicate typeRes = criteriaBuilder.equal(type, totalModule.getType());
+                    predicates.add(typeRes);
+                }
 
                 //如果ID不为空
                 if (totalModule.getId() != null) {

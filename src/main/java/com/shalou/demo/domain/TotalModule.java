@@ -49,8 +49,64 @@ public class TotalModule {
     //设置排序
     private Integer sort;
 
+    //设置层级
+    private Integer level;
+
+    //设置类型
+    private String type;
+
+    //设置点击数
+    private Integer clickNum;
+
+    //设置转发数
+    private Integer forwardNum;
+
+    //设置收藏数
+    private Integer collectionNum;
+
+
     //设置get和set
 
+
+    public Integer getLevel() {
+        return level;
+    }
+
+    public void setLevel(Integer level) {
+        this.level = level;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
+    }
+
+    public Integer getClickNum() {
+        return clickNum;
+    }
+
+    public void setClickNum(Integer clickNum) {
+        this.clickNum = clickNum;
+    }
+
+    public Integer getForwardNum() {
+        return forwardNum;
+    }
+
+    public void setForwardNum(Integer forwardNum) {
+        this.forwardNum = forwardNum;
+    }
+
+    public Integer getCollectionNum() {
+        return collectionNum;
+    }
+
+    public void setCollectionNum(Integer collectionNum) {
+        this.collectionNum = collectionNum;
+    }
 
     public Date getCreated_time() {
         return created_time;
@@ -133,6 +189,7 @@ public class TotalModule {
     }
 
     //设置toString方法
+
     @Override
     public String toString() {
         return "TotalModule{" +
@@ -146,6 +203,11 @@ public class TotalModule {
                 ", description='" + description + '\'' +
                 ", remarks='" + remarks + '\'' +
                 ", sort=" + sort +
+                ", level=" + level +
+                ", type='" + type + '\'' +
+                ", clickNum=" + clickNum +
+                ", forwardNum=" + forwardNum +
+                ", collectionNum=" + collectionNum +
                 '}';
     }
 }

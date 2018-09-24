@@ -46,6 +46,21 @@ public class User {
 
     //设置get和set方法
 
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
+    }
+
+    public Date getModifyTime() {
+        return modifyTime;
+    }
+
+    public void setModifyTime(Date modifyTime) {
+        this.modifyTime = modifyTime;
+    }
 
     public Integer getId() {
         return id;
@@ -102,6 +117,7 @@ public class User {
     public void setStatus(Integer status) {
         this.status = status;
     }
+
 
     //设置toString重构
 

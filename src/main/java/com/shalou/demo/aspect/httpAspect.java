@@ -17,11 +17,11 @@ public class httpAspect {
     private final static Logger logger= LoggerFactory.getLogger(httpAspect.class);
 
     //设置公共方法(*表示GirlController里面所有的方法,也可以选择指定的方法)
-    @Pointcut("execution(public * com.shalou.demo.controller.GirlController.*(..))")
+    @Pointcut("execution(public * com.shalou.demo.controller.TotalModuleController.*(..))")
     public void log(){}
 
     //http请求拦截
-    @Before("execution(public * com.shalou.demo.controller.GirlController.*(..))")
+    @Before("execution(public * com.shalou.demo.controller.TotalModuleController.*(..))")
     public void log(JoinPoint joinPoint){
         //打印日志
         logger.info("http请求拦截");
@@ -48,7 +48,7 @@ public class httpAspect {
     }
 
     //http响应拦截
-    @After("execution(public * com.shalou.demo.controller.GirlController.*(..))")
+    @After("execution(public * com.shalou.demo.controller.TotalModuleController.*(..))")
     public void doAfter(){
         logger.info("http响应拦截");
     }

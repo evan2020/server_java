@@ -205,7 +205,7 @@ public class UserService {
 
     //删除单个用户
     @ResponseBody
-    public Object deleteUser(Integer id) throws Exception{
+    public Object deleteUser(Integer id) throws Exception {
         userRepository.deleteById(id);
         return ResultUtil.success();
     }

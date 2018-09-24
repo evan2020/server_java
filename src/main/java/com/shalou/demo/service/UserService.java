@@ -8,7 +8,6 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.jpa.domain.Specification;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.persistence.criteria.*;
@@ -95,37 +94,37 @@ public class UserService {
                 //设置查询条件和获取对应结果
 
                 //如果用户名不为空
-                if (user.getUserName() != null&&user.getUserName()!=""&&!user.getUserName().isEmpty()) {
+                if (user.getUserName() != null && user.getUserName().equals("") && !user.getUserName().isEmpty()) {
                     Predicate name = criteriaBuilder.equal(userName, user.getUserName());
                     predicates.add(name);
                 }
 
                 //如果手机号码不为空
-                if (user.getPhoneNum()!=null&&user.getPhoneNum()!=""&&!user.getPhoneNum().isEmpty()) {
+                if (user.getPhoneNum() != null && user.getPhoneNum().equals("") && !user.getPhoneNum().isEmpty()) {
                     Predicate phone = criteriaBuilder.equal(phoneNum, user.getPhoneNum());
                     predicates.add(phone);
                 }
 
                 //如果邮箱不为空
-                if (user.getUserEmail() != null&&user.getUserEmail()!=""&&!user.getUserEmail().isEmpty()) {
+                if (user.getUserEmail() != null && user.getUserEmail().equals("") && !user.getUserEmail().isEmpty()) {
                     Predicate email = criteriaBuilder.equal(userEmail, user.getUserEmail());
                     predicates.add(email);
                 }
 
                 //如果城市不为空
-                if (user.getCity() != null&&user.getCity()!=""&&!user.getCity().isEmpty()) {
+                if (user.getCity() != null && user.getCity().equals("") && !user.getCity().isEmpty()) {
                     Predicate citys = criteriaBuilder.equal(city, user.getCity());
                     predicates.add(citys);
                 }
 
                 //如果性别不为空
-                if (user.getSex() != null&&user.getSex()!=0) {
+                if (user.getSex() != null && user.getSex() != 0) {
                     Predicate userSex = criteriaBuilder.equal(sex, user.getSex());
                     predicates.add(userSex);
                 }
 
                 //如果状态不为空
-                if (user.getStatus() != null&&user.getStatus()!=0) {
+                if (user.getStatus() != null && user.getStatus() != 0) {
                     Predicate userStatus = criteriaBuilder.equal(status, user.getStatus());
                     predicates.add(userStatus);
                 }
@@ -166,7 +165,7 @@ public class UserService {
         //如果手机号查询的结果不为空
         if (!userPhoneNumOne.isEmpty() && userPhoneNumOne != null) {
             //如果当前传入的手机号和修改前的手机号一致则不做处理
-            if (userIdOne.getPhoneNum() == user.getPhoneNum()) {
+            if (userIdOne.getPhoneNum().equals(user.getPhoneNum())) {
                 logger.info("手机号未修改");
             }
             //如果用户名在数据库已有且与修改前不一致则提示已存在同样的名称

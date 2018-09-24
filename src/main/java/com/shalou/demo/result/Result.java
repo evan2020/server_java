@@ -1,4 +1,4 @@
-package com.shalou.demo.domain;
+package com.shalou.demo.result;
 
 //http请求返回的最外层对象
 public class Result<T> {

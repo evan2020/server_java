@@ -1,6 +1,6 @@
 package com.shalou.demo.controller;
 
-import com.shalou.demo.domain.Result;
+import com.shalou.demo.result.Result;
 import com.shalou.demo.repository.GirlRepository;
 import com.shalou.demo.domain.Girl;
 import com.shalou.demo.service.GirlService;

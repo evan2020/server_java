@@ -1,6 +1,6 @@
 package com.shalou.demo.utils;
 
-import com.shalou.demo.domain.Result;
+import com.shalou.demo.result.Result;
 
 //封装resultApi res的信息类
 public class ResultUtil {

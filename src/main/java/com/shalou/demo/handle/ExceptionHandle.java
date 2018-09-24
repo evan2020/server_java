@@ -1,8 +1,7 @@
 package com.shalou.demo.handle;
 
-import com.shalou.demo.domain.Result;
+import com.shalou.demo.result.Result;
 import com.shalou.demo.exception.ComException;
-import com.shalou.demo.exception.GirlException;
 import com.shalou.demo.utils.ResultUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

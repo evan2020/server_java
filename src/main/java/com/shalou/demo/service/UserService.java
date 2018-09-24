@@ -95,37 +95,37 @@ public class UserService {
                 //设置查询条件和获取对应结果
 
                 //如果用户名不为空
-                if (user.getUserName() != null) {
+                if (user.getUserName() != null&&user.getUserName()!=""&&!user.getUserName().isEmpty()) {
                     Predicate name = criteriaBuilder.equal(userName, user.getUserName());
                     predicates.add(name);
                 }
 
                 //如果手机号码不为空
-                if (user.getPhoneNum() != 0) {
+                if (user.getPhoneNum()!=null&&user.getPhoneNum()!=""&&!user.getPhoneNum().isEmpty()) {
                     Predicate phone = criteriaBuilder.equal(phoneNum, user.getPhoneNum());
                     predicates.add(phone);
                 }
 
                 //如果邮箱不为空
-                if (user.getUserEmail() != null) {
+                if (user.getUserEmail() != null&&user.getUserEmail()!=""&&!user.getUserEmail().isEmpty()) {
                     Predicate email = criteriaBuilder.equal(userEmail, user.getUserEmail());
                     predicates.add(email);
                 }
 
                 //如果城市不为空
-                if (user.getCity() != null) {
+                if (user.getCity() != null&&user.getCity()!=""&&!user.getCity().isEmpty()) {
                     Predicate citys = criteriaBuilder.equal(city, user.getCity());
                     predicates.add(citys);
                 }
 
                 //如果性别不为空
-                if (user.getSex() != null) {
+                if (user.getSex() != null&&user.getSex()!=0) {
                     Predicate userSex = criteriaBuilder.equal(sex, user.getSex());
                     predicates.add(userSex);
                 }
 
                 //如果状态不为空
-                if (user.getStatus() != null) {
+                if (user.getStatus() != null&&user.getStatus()!=0) {
                     Predicate userStatus = criteriaBuilder.equal(status, user.getStatus());
                     predicates.add(userStatus);
                 }

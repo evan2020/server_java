@@ -1,12 +1,25 @@
 package com.shalou.demo.domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import org.springframework.data.annotation.CreatedDate;
+import org.springframework.data.annotation.LastModifiedDate;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
+
+import javax.persistence.*;
+import java.util.Date;
 
 //设置用户表
 @Entity
+@EntityListeners(AuditingEntityListener.class)
 public class User {
+
+    //自动生成创建时间
+    @CreatedDate
+    @Column(name = "create_time") private Date createTime;
+
+    //自动记录最后一次修改时间
+    @LastModifiedDate
+    @Column(name = "modify_time") private Date modifyTime;
+
 
     //设置用户ID
     @Id
@@ -17,7 +30,7 @@ public class User {
     private String userName;
 
     //设置手机号码
-    private long phoneNum;
+    private String phoneNum;
 
     //设置邮箱
     private String userEmail;
@@ -50,11 +63,11 @@ public class User {
         this.userName = userName;
     }
 
-    public long getPhoneNum() {
+    public String getPhoneNum() {
         return phoneNum;
     }
 
-    public void setPhoneNum(long phoneNum) {
+    public void setPhoneNum(String phoneNum) {
         this.phoneNum = phoneNum;
     }
 

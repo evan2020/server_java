@@ -94,25 +94,25 @@ public class UserService {
                 //设置查询条件和获取对应结果
 
                 //如果用户名不为空
-                if (user.getUserName() != null && user.getUserName().equals("") && !user.getUserName().isEmpty()) {
+                if (user.getUserName() != null && !user.getUserName().equals("") && !user.getUserName().isEmpty()) {
                     Predicate name = criteriaBuilder.equal(userName, user.getUserName());
                     predicates.add(name);
                 }
 
                 //如果手机号码不为空
-                if (user.getPhoneNum() != null && user.getPhoneNum().equals("") && !user.getPhoneNum().isEmpty()) {
+                if (user.getPhoneNum() != null && !user.getPhoneNum().equals("") && !user.getPhoneNum().isEmpty()) {
                     Predicate phone = criteriaBuilder.equal(phoneNum, user.getPhoneNum());
                     predicates.add(phone);
                 }
 
                 //如果邮箱不为空
-                if (user.getUserEmail() != null && user.getUserEmail().equals("") && !user.getUserEmail().isEmpty()) {
+                if (user.getUserEmail() != null && !user.getUserEmail().equals("") && !user.getUserEmail().isEmpty()) {
                     Predicate email = criteriaBuilder.equal(userEmail, user.getUserEmail());
                     predicates.add(email);
                 }
 
                 //如果城市不为空
-                if (user.getCity() != null && user.getCity().equals("") && !user.getCity().isEmpty()) {
+                if (user.getCity() != null && !user.getCity().equals("") && !user.getCity().isEmpty()) {
                     Predicate citys = criteriaBuilder.equal(city, user.getCity());
                     predicates.add(citys);
                 }

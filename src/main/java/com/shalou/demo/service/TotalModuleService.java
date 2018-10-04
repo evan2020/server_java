@@ -67,6 +67,8 @@ public class TotalModuleService {
         totalModule1Edit.setClickNum(totalModule.getClickNum());
         totalModule1Edit.setForwardNum(totalModule.getForwardNum());
         totalModule1Edit.setCollectionNum(totalModule.getCollectionNum());
+        totalModule1Edit.setCreated_time(totalModule.getCreated_time());
+//        totalModule1Edit.setModifyTime(totalModule.getModifyTime());
 
         totalModuleRespository.save(totalModule1Edit);
         return ResultUtil.success();

@@ -10,3 +10,12 @@ spring:
     hibernate:
       ddl-auto: update
     show-sql: true
+  thymeleaf:
+    prefix: classpath:/templates/
+  mvc:
+    static-path-pattern: /**
+  http:
+    multipart:
+      location:E://github/javaPro/shalou/src/main/resources/static
+  resources:
+    static-locations: classpath:/META-INF/resources/,classpath:/resources/, classpath:/static/, classpath:/public/, file:${spring.http.multipart.location}

@@ -196,6 +196,9 @@ public class UserService {
         users.setCity(user.getCity());
         users.setSex(user.getSex());
         users.setStatus(user.getStatus());
+        //避免创建时间被清空为null
+        users.setCreateTime(userIdOne.getCreateTime());
+        //users.setModifyTime(userIdOne.getModifyTime());
         userRepository.save(users);
 
         //返回res信息

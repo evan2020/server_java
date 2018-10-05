@@ -1,14 +1,72 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
+    <meta charset="UTF-8"/>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <title>Title</title>
 </head>
 <body>
-    <div>
-        index
-        <img src="http://img3.imgtn.bdimg.com/it/u=496641143,3869583512&fm=200&gp=0.jpg" alt="png" />
-        <!--<img src="../static/123.jpg" alt="png" />-->
-    </div>
+<div>
+    index
+    <img src="http://img3.imgtn.bdimg.com/it/u=496641143,3869583512&fm=200&gp=0.jpg" alt="png"/>
+    <!--<img src="../static/123.jpg" alt="png" />-->
+</div>
 </body>
+<script>
+    function getQueryString(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+    }
+    var openid=getQueryString("openid")
+    if(openid){
+        window.localStorage.setItem("openid",openid)
+        alert("openid"+openid)
+    }
+
+    $(document).ready(function () {
+        //设置随机字符串
+        var nonceStr = "Wm3WZYTPz0wzccnW";
+        //设置时间戳
+        var timestamp = Math.floor(new Date().getTime() / 1000) + "";
+        //获取当前页面完整 url
+        var url = window.location.href;
+        //向服务器发起请求获取config参数
+        $.get("http://dsx2016.s1.natapp.cc/shalou/getConfig", {
+            timestamp: timestamp,
+            nonceStr: nonceStr,
+            url: url,
+            openid: openid
+        }, function (data, status) {
+            console.log(data)
+            //alert("appId: " + data.appId + "\nStatus: " + status);
+            //alert("timestamp: " + data.timestamp + "\nStatus: " + status);
+            //alert("nonceStr: " + data.nonceStr + "\nStatus: " + status);
+            //alert("signature: " + data.signature + "\nStatus: " + status);
+
+            wx.config({
+                debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
+                appId: data.appId, // 必填，公众号的唯一标识
+                timestamp: data.timestamp, // 必填，生成签名的时间戳
+                nonceStr: data.nonceStr, // 必填，生成签名的随机串
+                signature: data.signature,// 必填，签名
+                jsApiList: ["startRecord"], // 必填，需要使用的JS接口列表
+                success: function (res) {
+                    alert("config成功")
+                },
+                fail: function (res) {
+                    alert("config失败")
+                },
+            });
+            wx.ready(function () {
+                //wx.startRecord();
+                alert("ready")
+            });
+        });
+
+
+    });
+</script>
 </html>

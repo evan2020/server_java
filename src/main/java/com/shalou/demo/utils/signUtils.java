@@ -19,7 +19,7 @@ public class signUtils {
                 sb.append(k + "=" + v + "&");
             }
         }
-        sb.append("key=" + "huxiaoshuang"); // 此处填写商户的key(下次记得比对商户key)
+        sb.append("key=" + ""); // 此处填写商户的key
         System.out.println("字符串:" + sb.toString());
         String sign = UtilsMD5.MD5Encode(sb.toString(), characterEncoding).toUpperCase();
         return sign;

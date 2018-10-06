@@ -2,6 +2,7 @@ package com.shalou.demo.controller;
 
 import com.shalou.demo.utils.SHA1;
 import com.shalou.demo.utils.SendHttpRequest;
+import com.shalou.demo.utils.XmlOrMapToggle;
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -9,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.SortedMap;
 import java.util.TreeMap;
 
@@ -24,6 +27,43 @@ public class webController {
     private String token = "14_4PdaD9rmOtNqMAg3ayXliYq2PGCluXkQiUjaBHLw_WrbaZw2kEvX6z8QbiblbkugJTRWlFKY7Tfz1qabH1GrP6LE5SCyuMNqc_fPZ0jmAUuhq2T_6PD83ULK_4Yy54VYZrzHLMImYsGHpMQ5DGXjADAWZQ";
     private String openid = "opBQtwcFrxY89xFPrAKwzXLhmop4";
     private String signature = "bd9b8185b8464b4b7cb7ae989659ef048becd529";
+
+    @GetMapping(value = "/xmlToggle")
+    @ResponseBody
+    public Object xml() {
+        Map<String, String> map = new HashMap<String, String>();
+        map.put("test", "123");
+        map.put("try", "456");
+        String xml = XmlOrMapToggle.map2XmlString(map);
+        System.out.println("xml：" + xml);
+
+        String sXml = "<xml>\n" +
+                "<appid>wxdfe8e9a69851a406</appid>\n" +
+                "<body>test1</body>\n" +
+                "<device_info>1001</device_info>\n" +
+                "<mch_id>1488241012</mch_id>\n" +
+                "<notify_url>http://dsx2016.s1.natapp.cc/shalou/auth</notify_url>\n" +
+                "<nonce_str>ibuaiVcKdpRxkhJA</nonce_str>\n" +
+                "<out_trade_no>20150806125346211</out_trade_no>\n" +
+                "<openid>opBQtwcFrxY89xFPrAKwzXLhmop4</openid>\n" +
+                "<spbill_create_ip>113.89.97.6</spbill_create_ip>\n" +
+                "<total_fee>3</total_fee>\n" +
+                "<trade_type>JSAPI</trade_type>\n" +
+                "<sign>A18E3E74F8E19ED73A468398DBD30A83</sign>\n" +
+                "</xml>";
+        //初始化map
+        Map map2;
+        //解析xml为map
+        map2 = XmlOrMapToggle.readStringXmlOut(sXml);
+        //将map转为json
+        JSONObject jsonRes = JSONObject.fromObject(map2);
+        //打印结果
+        System.out.println("map2：" + map2);
+        //取出json中的某个key值
+        String test3 = jsonRes.getString("sign");
+        //返回数据
+        return test3;
+    }
 
     //测试接口
     //登录回调或者jsapi接口
@@ -47,10 +87,10 @@ public class webController {
         JSONObject userInfo = SendHttpRequest.sendGet(userInfo_url);
         System.out.println("userInfo：" + userInfo);
         // 编码后的json
-        String userInfoBase="";
+        String userInfoBase = "";
 
         try {
-             userInfoBase = new String(userInfo.getString("nickname").getBytes("ISO-8859-1"), "UTF-8");
+            userInfoBase = new String(userInfo.getString("nickname").getBytes("ISO-8859-1"), "UTF-8");
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -99,7 +139,7 @@ public class webController {
     //测试接口
     @GetMapping(value = "/txt")
     public String txt() {
-        return "/123.txt";
+        return "/pay";
     }
 
     //验证微信安全域名和回调域名
@@ -161,7 +201,7 @@ public class webController {
         //商户订单号
         parameters.put("out_trade_no", "20150806125346211");
         //终端IP
-        parameters.put("spbill_create_ip", "113.89.98.84");
+        parameters.put("spbill_create_ip", "113.89.97.6");
         //标价金额
         parameters.put("total_fee", "3");
         //交易类型
@@ -195,7 +235,7 @@ public class webController {
                     "<nonce_str>ibuaiVcKdpRxkhJA</nonce_str>\n" +
                     "<out_trade_no>20150806125346211</out_trade_no>\n" +
                     "<openid>opBQtwcFrxY89xFPrAKwzXLhmop4</openid>\n" +
-                    "<spbill_create_ip>113.89.98.84</spbill_create_ip>\n" +
+                    "<spbill_create_ip>113.89.97.6</spbill_create_ip>\n" +
                     "<total_fee>3</total_fee>\n" +
                     "<trade_type>JSAPI</trade_type>\n" +
                     "<sign>A18E3E74F8E19ED73A468398DBD30A83</sign>\n" +

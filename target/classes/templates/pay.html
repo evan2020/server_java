@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <script src="http://res.wx.qq.com/open/js/jweixin-1.4.0.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    //获取当前支付的ip地址
+    <script src="http://pv.sohu.com/cityjson?ie=utf-8"></script>
     <title>pay</title>
 </head>
 
@@ -13,6 +15,19 @@
 <div>pay</div>
 </body>
 <script>
+    //获取当前支付的ip地址
+    console.log(returnCitySN["cip"])
+    function randomString(len) {
+        len = len || 32;
+        var $chars = 'ABCDEFGHJKMNPQRSTWXYZabcdefhijkmnprstwxyz2345678';    /****默认去掉了容易混淆的字符oOLl,9gq,Vv,Uu,I1****/
+        var maxPos = $chars.length;
+        var pwd = '';
+        for (i = 0; i < len; i++) {
+            pwd += $chars.charAt(Math.floor(Math.random() * maxPos));
+        }
+        return pwd;
+    }
+    document.write(randomString(32));
     $(document).ready(function () {
         wx.config({
             debug: true, // 开启调试模式,调用的所有api的返回值会在客户端alert出来，若要查看传入的参数，可以在pc端打开，参数信息会通过log打出，仅在pc端时才会打印。
@@ -30,7 +45,7 @@
             },
         });
         wx.ready(function () {
-            wx.startRecord();
+           /* wx.startRecord();
             wx.chooseWXPay({
                 appId: "wxdfe8e9a69851a406", //appid
                 // openid:"opBQtwcFrxY89xFPrAKwzXLhmop4",
@@ -47,7 +62,7 @@
                 fail: function (res) {
                     alert("支付失败")
                 },
-            });
+            });*/
         });
 
     });

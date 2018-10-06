@@ -6,6 +6,7 @@ import com.shalou.demo.repository.LitterHelperRespository;
 import com.shalou.demo.utils.ResultUtil;
 import com.shalou.demo.utils.SHA1;
 import com.shalou.demo.utils.SendHttpRequest;
+import com.shalou.demo.utils.XmlOrMapToggle;
 import net.sf.json.JSONObject;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,8 +14,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.SortedMap;
+import java.util.TreeMap;
+
+import static com.shalou.demo.utils.HttpClientUtils.postXML;
+import static com.shalou.demo.utils.signUtils.createSign;
 
 //设置service
 @Service
@@ -185,6 +192,220 @@ public class LitterHelperService {
             JSONObject jsonRes = JSONObject.fromObject(config);
             return jsonRes;
         }
+    }
+
+    //微信统一下单
+    public Object wePay(String body,String device_info,String nonceStr,String out_trade_no,String total_fee,String spbill_create_ip,String timeStamp){
+
+        //打印参数查看是否获取到
+        logger.info("打印参数 >>>>>>>>>>>>>>>>>");
+        logger.info("body >>>>" + body);
+        logger.info("device_info >>>>" + device_info);
+        logger.info("nonceStr >>>>" + nonceStr);
+        logger.info("out_trade_no >>>>" + out_trade_no);
+        logger.info("total_fee >>>>" + total_fee);
+        logger.info("spbill_create_ip >>>>" + spbill_create_ip);
+        logger.info("timeStamp >>>>" + timeStamp);
+        //timeStamp二次签名需要(统一下单不需要)注意s大小写,前后端不一致
+        //设置map数据
+        SortedMap<Object, Object> parameters = new TreeMap<Object, Object>();
+        //公众账号ID
+        parameters.put("appid", "wxdfe8e9a69851a406");
+        //商品描述
+        parameters.put("body", body);
+        //设备号
+        parameters.put("device_info", device_info);
+        //商户号
+        parameters.put("mch_id", "1488241012");
+        //支付成功后的回调地址(post接口)
+        parameters.put("notify_url", "http://dsx2016.s1.natapp.cc/shalou/litter/payRes");
+        //随机字符串
+        parameters.put("nonce_str", nonceStr);
+        //openid
+        parameters.put("openid", "opBQtwcFrxY89xFPrAKwzXLhmop4");
+        //商户订单号
+        parameters.put("out_trade_no", out_trade_no);
+        //终端IP
+        parameters.put("spbill_create_ip", spbill_create_ip);
+        //标价金额
+        parameters.put("total_fee", total_fee);
+        //交易类型
+        parameters.put("trade_type", "JSAPI");
+        //签名类型
+        parameters.put("sign_type", "MD5");
+
+        //设置编码
+        String characterEncoding = "UTF-8";
+        //获取第一次签名(使用了封装的各种类)
+        String mySign = createSign(characterEncoding, parameters);
+        //第一次签名
+        System.out.println("我 的签名是：" + mySign);
+
+        //把以上的数据加上返回的第一次签名转为xml
+        Map<String, String> mapSign = new HashMap<String, String>();
+        mapSign.put("sign", mySign);
+        //公众账号ID
+        mapSign.put("appid", "wxdfe8e9a69851a406");
+        //商品描述
+        mapSign.put("body", body);
+        //设备号
+        mapSign.put("device_info", device_info);
+        //商户号
+        mapSign.put("mch_id", "1488241012");
+        //支付成功后的回调地址(post接口)
+        mapSign.put("notify_url", "http://dsx2016.s1.natapp.cc/shalou/litter/payRes");
+        //随机字符串
+        mapSign.put("nonce_str", nonceStr);
+        //openid
+        mapSign.put("openid", "opBQtwcFrxY89xFPrAKwzXLhmop4");
+        //商户订单号
+        mapSign.put("out_trade_no", out_trade_no);
+        //终端IP
+        mapSign.put("spbill_create_ip", spbill_create_ip);
+        //标价金额
+        mapSign.put("total_fee", total_fee);
+        //交易类型
+        mapSign.put("trade_type", "JSAPI");
+        //签名类型
+        mapSign.put("sign_type", "MD5");
+        //转为xml
+        String xml = XmlOrMapToggle.map2XmlString(mapSign);
+        logger.info("打印参数xml >>>>>>>>>>>>>>>>>" + xml);
+
+        //微信公众号统一下单地址
+        String url = "https://api.mch.weixin.qq.com/pay/unifiedorder";
+        //将数据转为字符串XML
+        try {
+            //向微信发起统一下单请求
+            String responseContent = postXML(url, xml);
+            //获取到结果
+            System.out.println("商户返回:" + responseContent);
+            //解析微信xml为map
+            Map map2 = XmlOrMapToggle.readStringXmlOut(responseContent);
+            //将map转为json
+            JSONObject jsonRes = JSONObject.fromObject(map2);
+            //打印结果
+            System.out.println("map2：" + map2);
+            //取出json中的某个key值
+            String prepay_id = jsonRes.getString("prepay_id");
+            System.out.println("获取二次签名需要的参数：" + prepay_id);
+
+            //设置map数据(用于二次签名)
+            SortedMap<Object, Object> signAgian = new TreeMap<Object, Object>();
+            //设置发起支付必填数据(按照字母排列)
+            //appId(一定要注意大小写啊啊啊啊)所有的字段都要注意
+            signAgian.put("appId", "wxdfe8e9a69851a406");
+            //nonceStr
+            signAgian.put("nonceStr", nonceStr);
+            //package
+            signAgian.put("package", "prepay_id=" + prepay_id);
+            //MD5
+            //signAgian.put("sign_type", "MD5");
+            //MD5(注意字段名)
+            signAgian.put("signType", "MD5");
+            //timeStamp
+            signAgian.put("timeStamp", timeStamp);
+
+            //获取二次签名(使用了封装的各种类)
+            String mySignTwo = createSign(characterEncoding, signAgian);
+            //签名
+            System.out.println(" mySignTwo的签名是：" + mySignTwo);
+
+            Map<String, String> resMap = new HashMap<String, String>();
+            resMap.put("paySign", mySignTwo);
+            resMap.put("package", "prepay_id=" + prepay_id);
+
+            return resMap;
+
+
+            //返回前端支付需要的参数
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "出错啦";
+    }
+
+
+    //微信支付回调需要的工具函数
+    /**
+     * 插入XML标签
+     *
+     * @param sb
+     * @param Key
+     * @param value
+     * @return
+     */
+    public static StringBuilder setXmlKV(StringBuilder sb, String Key, String value) {
+        sb.append("<");
+        sb.append(Key);
+        sb.append(">");
+
+        sb.append(value);
+
+        sb.append("</");
+        sb.append(Key);
+        sb.append(">");
+
+        return sb;
+    }
+
+    //微信支付回调需要的工具函数
+    /**
+     * 解析XML 获得名称为para的参数值
+     *
+     * @param xml
+     * @param para
+     * @return
+     */
+    public static String getXmlPara(String xml, String para) {
+        int start = xml.indexOf("<" + para + ">");
+        int end = xml.indexOf("</" + para + ">");
+
+        if (start < 0 && end < 0) {
+            return null;
+        }
+        return xml.substring(start + ("<" + para + ">").length(), end).replace("<![CDATA[", "").replace("]]>", "");
+    }
+
+    //微信支付后回调
+    public String payRes(HttpServletRequest request){
+        //初始化变量
+        String inputLine;
+        String notifyXml = "";
+        String resXml = "";
+        try {
+            while ((inputLine = request.getReader().readLine()) != null) {
+                notifyXml += inputLine;
+            }
+            request.getReader().close();
+        } catch (Exception e) {
+            //logger.debug("xml获取失败：" + e);
+            e.printStackTrace();
+        }
+        System.out.println("接收到的xml：" + notifyXml);
+
+        //微信发来的数据(用于验证签名等)
+        String appid = getXmlPara(notifyXml, "appid");
+        String bank_type = getXmlPara(notifyXml, "bank_type");
+        String cash_fee = getXmlPara(notifyXml, "cash_fee");
+        String fee_type = getXmlPara(notifyXml, "fee_type");
+        String is_subscribe = getXmlPara(notifyXml, "is_subscribe");
+        String mch_id = getXmlPara(notifyXml, "mch_id");
+        String nonce_str = getXmlPara(notifyXml, "nonce_str");
+        String openid = getXmlPara(notifyXml, "openid");
+        String out_trade_no = getXmlPara(notifyXml, "out_trade_no");
+        String result_code = getXmlPara(notifyXml, "result_code");
+        String return_code = getXmlPara(notifyXml, "return_code");
+        String sign = getXmlPara(notifyXml, "sign");
+        String time_end = getXmlPara(notifyXml, "time_end");
+        String total_fee = getXmlPara(notifyXml, "total_fee");
+        String trade_type = getXmlPara(notifyXml, "trade_type");
+        String transaction_id = getXmlPara(notifyXml, "transaction_id");
+
+        System.out.println("支付成功....");
+        resXml = "<xml>" + "<return_code><![CDATA[SUCCESS]]></return_code>" + "<return_msg><![CDATA[OK]]></return_msg>" + "</xml> ";
+        return resXml;
     }
 
 }

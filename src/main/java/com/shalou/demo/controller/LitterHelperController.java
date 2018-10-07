@@ -99,8 +99,9 @@ public class LitterHelperController {
                         @RequestParam("out_trade_no") String out_trade_no,
                         @RequestParam("total_fee") String total_fee,
                         @RequestParam("spbill_create_ip") String spbill_create_ip,
-                        @RequestParam("timeStamp") String timeStamp) {
-        return litterHelperService.wePay(body, device_info, nonceStr, out_trade_no, total_fee, spbill_create_ip, timeStamp);
+                        @RequestParam("timeStamp") String timeStamp,
+                        @RequestParam("openid") String openid) {
+        return litterHelperService.wePay(body, device_info, nonceStr, out_trade_no, total_fee, spbill_create_ip, timeStamp,openid);
     }
 
 

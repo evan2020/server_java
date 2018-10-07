@@ -195,7 +195,7 @@ public class LitterHelperService {
     }
 
     //微信统一下单
-    public Object wePay(String body,String device_info,String nonceStr,String out_trade_no,String total_fee,String spbill_create_ip,String timeStamp){
+    public Object wePay(String body,String device_info,String nonceStr,String out_trade_no,String total_fee,String spbill_create_ip,String timeStamp,String openid){
 
         //打印参数查看是否获取到
         logger.info("打印参数 >>>>>>>>>>>>>>>>>");
@@ -221,8 +221,8 @@ public class LitterHelperService {
         parameters.put("notify_url", "http://dsx2016.s1.natapp.cc/shalou/litter/payRes");
         //随机字符串
         parameters.put("nonce_str", nonceStr);
-        //openid
-        parameters.put("openid", "opBQtwcFrxY89xFPrAKwzXLhmop4");
+        //openid(文档没写,但是加密记得时候签名需要,巨坑)
+        parameters.put("openid", openid);
         //商户订单号
         parameters.put("out_trade_no", out_trade_no);
         //终端IP
@@ -231,7 +231,7 @@ public class LitterHelperService {
         parameters.put("total_fee", total_fee);
         //交易类型
         parameters.put("trade_type", "JSAPI");
-        //签名类型
+        //签名类型(巨坑,一定传)
         parameters.put("sign_type", "MD5");
 
         //设置编码
@@ -257,7 +257,7 @@ public class LitterHelperService {
         //随机字符串
         mapSign.put("nonce_str", nonceStr);
         //openid
-        mapSign.put("openid", "opBQtwcFrxY89xFPrAKwzXLhmop4");
+        mapSign.put("openid", openid);
         //商户订单号
         mapSign.put("out_trade_no", out_trade_no);
         //终端IP
@@ -383,6 +383,8 @@ public class LitterHelperService {
             //logger.debug("xml获取失败：" + e);
             e.printStackTrace();
         }
+
+
         System.out.println("接收到的xml：" + notifyXml);
 
         //微信发来的数据(用于验证签名等)
@@ -402,6 +404,13 @@ public class LitterHelperService {
         String total_fee = getXmlPara(notifyXml, "total_fee");
         String trade_type = getXmlPara(notifyXml, "trade_type");
         String transaction_id = getXmlPara(notifyXml, "transaction_id");
+
+        //todo
+        /*1.首先拿到本地的sign
+        * 2.其次把微信的数据再次sign
+        * 3.把两个签名比对校验
+        * 4.如果对的话就是支付成功并且通知微信,然后改变用户的订单状态
+        * 5.如果不对就是支付失败*/
 
         System.out.println("支付成功....");
         resXml = "<xml>" + "<return_code><![CDATA[SUCCESS]]></return_code>" + "<return_msg><![CDATA[OK]]></return_msg>" + "</xml> ";

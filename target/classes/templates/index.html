@@ -95,7 +95,8 @@
                     total_fee: "1", //1分钱
                     timeStamp: timestamp,//支付签名时间戳(10位数字)，注意微信jssdk中的所有使用timestamp字段均为小写
                     nonceStr: nonceStr, //支付签名随机串，不长于 32 位
-                    spbill_create_ip: ip //客户端ip地址
+                    spbill_create_ip: ip, //客户端ip地址
+                    openid:openid, //当前支付账号的openid
                 }, function (data, status) {
                     //发起支付
                     alert("package"+data.package);

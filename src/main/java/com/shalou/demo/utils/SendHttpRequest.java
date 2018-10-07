@@ -10,6 +10,7 @@ import java.io.IOException;
 
 import net.sf.json.JSONObject;
 
+//服务端发起请求
 public class SendHttpRequest {
     /**
      * @param url

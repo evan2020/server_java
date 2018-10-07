@@ -5,6 +5,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 
+//微信支付签名算法
 public class signUtils {
 
     public static String createSign(String characterEncoding, SortedMap<Object, Object> parameters) {

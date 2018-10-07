@@ -2,6 +2,7 @@ package com.shalou.demo.utils;
 
 import java.security.MessageDigest;
 
+//微信支付签名算法
 public class UtilsMD5 {
     private static String byteArrayToHexString(byte b[]) {
         StringBuffer resultSb = new StringBuffer();

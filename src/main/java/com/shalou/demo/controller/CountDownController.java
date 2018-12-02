@@ -33,6 +33,8 @@ public class CountDownController {
         countDownNew.setItemName(countDown.getItemName());
         //获取目标时间
         countDownNew.setTargetDate(countDown.getTargetDate());
+        //获取用户的openId
+        countDownNew.setOpenId(countDown.getOpenId());
         //默认分类类型为综合
         countDownNew.setClassIfy("综合");
         //默认为不置顶
@@ -60,9 +62,9 @@ public class CountDownController {
     //查询所有卡片
     @GetMapping(value = "/timer/findAllCard")
     @ResponseBody
-    public Object findAllCard() {
+    public Object findAllCard(CountDown countDown) {
         //查询所有
-        List<CountDown> countDowns = countDownRespository.findAll();
+        List<CountDown> countDowns = countDownRespository.findAllByOpenId(countDown.getOpenId());
         return ResultUtil.success(countDowns);
     }
 
@@ -83,6 +85,8 @@ public class CountDownController {
         countDownNew.setTargetDate(countDown.getTargetDate());
         //保留初始的创建时间
         countDownNew.setCreateTime(countDownOne.getCreateTime());
+        //保留初始的openID
+        countDownNew.setOpenId(countDownOne.getOpenId());
         //默认分类类型为综合
         countDownNew.setClassIfy("综合");
         //默认为不置顶

@@ -46,9 +46,12 @@ public class CountDown {
     //是否提醒(0 为不提醒 1 提醒)
     private String isRemind;
 
+    //记录openId
+    private String openId;
+
     @Override
     public String toString() {
-        return "countDown{" +
+        return "CountDown{" +
                 "createTime=" + createTime +
                 ", modifyTime=" + modifyTime +
                 ", id=" + id +
@@ -58,6 +61,7 @@ public class CountDown {
                 ", checked='" + checked + '\'' +
                 ", isRepeat='" + isRepeat + '\'' +
                 ", isRemind='" + isRemind + '\'' +
+                ", openId='" + openId + '\'' +
                 '}';
     }
 
@@ -133,4 +137,11 @@ public class CountDown {
         this.isRemind = isRemind;
     }
 
+    public String getOpenId() {
+        return openId;
+    }
+
+    public void setOpenId(String openId) {
+        this.openId = openId;
+    }
 }

@@ -22,7 +22,6 @@ public class CountDown {
     @Column(name = "modify_time")
     private Date modifyTime;
 
-
     //设置用户ID
     @Id
     @GeneratedValue

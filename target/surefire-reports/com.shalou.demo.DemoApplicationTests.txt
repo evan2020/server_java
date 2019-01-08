@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.shalou.demo.DemoApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.212 s - in com.shalou.demo.DemoApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 14.115 s - in com.shalou.demo.DemoApplicationTests

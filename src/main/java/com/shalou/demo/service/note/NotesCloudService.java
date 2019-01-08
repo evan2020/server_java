@@ -29,6 +29,8 @@ public class NotesCloudService {
         notesCloudOne.setId(notesCloudOne.getId());
         //获取文章的内容
         notesCloudOne.setNoteContent(notesCloud.getNoteContent());
+
+        notesCloudRespository.save(notesCloudOne);
         return ResultUtil.success("保存成功");
     }
 

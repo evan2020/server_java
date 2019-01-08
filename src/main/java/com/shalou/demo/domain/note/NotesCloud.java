@@ -35,7 +35,7 @@ public class NotesCloud {
     private String noteTitle;
 
     //笔记的作者
-    private  String noteAuthor;
+    private String noteAuthor;
 
     //作者的ID
     private String noteUserId;
@@ -49,7 +49,8 @@ public class NotesCloud {
     //笔记的分类
     private String noteClassify;
 
-    //笔记的内容
+    //笔记的内容(设置内容的最大长度为13500个字符)只能是这么多
+    @Column(name = "note_content",length=13500)
     private String noteContent;
 
     //笔记用于分享的链接

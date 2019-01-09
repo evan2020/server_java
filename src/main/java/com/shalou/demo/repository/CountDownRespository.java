@@ -13,4 +13,5 @@ public interface CountDownRespository extends JpaRepository<CountDown, Integer>,
 
     //通过openId查询用户的所有倒计时
     public List<CountDown> findAllByOpenId(String openId);
+
 }

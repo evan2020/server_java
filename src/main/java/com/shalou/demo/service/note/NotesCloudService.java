@@ -21,7 +21,7 @@ public class NotesCloudService {
     //保存文章
     public Object saveNote(NotesCloud notesCloud) {
         //根据文章id查找文章
-        NotesCloud notesCloudOne = notesCloudRespository.findNotesCloudsByTimeStamp(notesCloud.getTimeStamp());
+        NotesCloud notesCloudOne = notesCloudRespository.findNotesCloudsByNoteArticleId(notesCloud.getNoteArticleId());
         //保存原来的元数据
         notesCloudOne.setCreateTime(notesCloudOne.getCreateTime());
         notesCloudOne.setModifyTime(notesCloudOne.getModifyTime());
@@ -29,7 +29,11 @@ public class NotesCloudService {
         notesCloudOne.setId(notesCloudOne.getId());
         //获取文章的内容
         notesCloudOne.setNoteContent(notesCloud.getNoteContent());
-
+        //获取文章的标题
+        notesCloudOne.setNoteTitle(notesCloud.getNoteTitle());
+        //获取作者的ID
+        notesCloudOne.setNoteUserId(notesCloud.getNoteUserId());
+        //保存文章
         notesCloudRespository.save(notesCloudOne);
         return ResultUtil.success("保存成功");
     }

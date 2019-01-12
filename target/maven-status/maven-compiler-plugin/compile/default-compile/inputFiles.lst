@@ -1,5 +1,7 @@
+E:\github\server_java\src\main\java\com\shalou\demo\domain\note\NotesCloud.java
 E:\github\server_java\src\main\java\com\shalou\demo\domain\TotalModule.java
 E:\github\server_java\src\main\java\com\shalou\demo\utils\ResultUtil.java
+E:\github\server_java\src\main\java\com\shalou\demo\service\note\NotesCloudService.java
 E:\github\server_java\src\main\java\com\shalou\demo\domain\CountDown.java
 E:\github\server_java\src\main\java\com\shalou\demo\controller\CountDownController.java
 E:\github\server_java\src\main\java\com\shalou\demo\utils\XmlOrMapToggle.java
@@ -9,9 +11,11 @@ E:\github\server_java\src\main\java\com\shalou\demo\aspect\httpAspect.java
 E:\github\server_java\src\main\java\com\shalou\demo\repository\ShortUrlRespository.java
 E:\github\server_java\src\main\java\com\shalou\demo\domain\LitterHelperUser.java
 E:\github\server_java\src\main\java\com\shalou\demo\utils\HttpClientUtils.java
+E:\github\server_java\src\main\java\com\shalou\demo\repository\note\NotesCloudRespository.java
 E:\github\server_java\src\main\java\com\shalou\demo\domain\ShortUrl.java
 E:\github\server_java\src\main\java\com\shalou\demo\controller\webController.java
 E:\github\server_java\src\main\java\com\shalou\demo\utils\SHA1.java
+E:\github\server_java\src\main\java\com\shalou\demo\controller\note\NotesCloudController.java
 E:\github\server_java\src\main\java\com\shalou\demo\domain\User.java
 E:\github\server_java\src\main\java\com\shalou\demo\repository\UserRepository.java
 E:\github\server_java\src\main\java\com\shalou\demo\service\UserService.java

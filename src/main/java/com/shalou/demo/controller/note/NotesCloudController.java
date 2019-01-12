@@ -32,6 +32,13 @@ public class NotesCloudController {
     @Autowired
     private NotesCloudService notesCloudService;
 
+    //查询该用户下所有的笔记
+    @GetMapping(value = "/note/test")
+    @ResponseBody
+    public Object test(NotesCloud notesCloud) {
+        return ResultUtil.success("test note API");
+    }
+
     //创建笔记
     @GetMapping(value = "/note/addNote")
     @ResponseBody

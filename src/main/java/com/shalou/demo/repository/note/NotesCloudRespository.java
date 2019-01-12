@@ -16,4 +16,8 @@ public interface NotesCloudRespository extends JpaRepository<NotesCloud, Integer
 
     //根据用户iD查找该用户下的所有笔记
     public List<NotesCloud> findAllByNoteUserId(String noteUserId);
+
+    //根据文章ID删除当前文章
+    public NotesCloud deleteByNoteArticleId(String noteArticleId);
+
 }

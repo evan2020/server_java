@@ -77,6 +77,14 @@ public class NotesCloudController {
         return ResultUtil.success(notesClouds);
     }
 
+    //删除当前笔记
+    @GetMapping(value = "/note/deleteOneNote")
+    @ResponseBody
+    public Object deleteOneNote(NotesCloud notesCloud) {
+        notesCloudRespository.deleteById(notesCloud.getId());
+        return ResultUtil.success("删除成功");
+    }
+
     //查询单篇笔记
     @GetMapping(value = "/note/findOneNote")
     @ResponseBody

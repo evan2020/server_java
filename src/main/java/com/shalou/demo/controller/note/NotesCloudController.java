@@ -32,7 +32,7 @@ public class NotesCloudController {
     @Autowired
     private NotesCloudService notesCloudService;
 
-    //查询该用户下所有的笔记
+    //测试接口
     @GetMapping(value = "/note/test")
     @ResponseBody
     public Object test(NotesCloud notesCloud) {
@@ -49,9 +49,10 @@ public class NotesCloudController {
         //获取当前系统的时间戳
         String timeStamp = String.valueOf(new Date().getTime());
         String noteArticleId = timeStamp + "dsx2016";
-
+        logger.info("分类名称" + notesCloud.getNoteClassify());
         notesCloudNew.setTimeStamp(timeStamp);
         notesCloudNew.setNoteArticleId(noteArticleId);
+        notesCloudNew.setNoteClassify(notesCloud.getNoteClassify());
         notesCloudNew.setNoteUserId(notesCloud.getNoteUserId());
 
         //保存到数据库
@@ -83,6 +84,15 @@ public class NotesCloudController {
         List<NotesCloud> notesClouds = notesCloudRespository.findAllByNoteUserId(notesCloud.getNoteUserId());
         return ResultUtil.success(notesClouds);
     }
+
+    //查询该用户分类笔记
+    @GetMapping(value = "/note/findNoteByClass")
+    @ResponseBody
+    public Object findNoteByClass(NotesCloud notesCloud) {
+        List<NotesCloud> notesClouds = notesCloudRespository.findNotesCloudsByNoteUserIdAndNoteClassify(notesCloud.getNoteUserId(), notesCloud.getNoteClassify());
+        return ResultUtil.success(notesClouds);
+    }
+
 
     //删除当前笔记
     @GetMapping(value = "/note/deleteOneNote")
